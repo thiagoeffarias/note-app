@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -63,4 +65,23 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    // Compose dependencies
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.0-beta01")
+    implementation ("androidx.navigation:navigation-compose:2.4.0-alpha09")
+    implementation ("androidx.compose.material:material-icons-extended:$2.4.0")
+
+    implementation("com.google.dagger:hilt-android:2.44")
+    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0-alpha03")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1")
+
+    // Room
+    implementation("androidx.room:room-runtime:2.3.0")
+
+    // Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:2.3.0")
 }
