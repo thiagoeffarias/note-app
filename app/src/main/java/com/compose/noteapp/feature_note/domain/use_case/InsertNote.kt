@@ -3,11 +3,9 @@ package com.compose.noteapp.feature_note.domain.use_case
 import com.compose.noteapp.feature_note.domain.model.InvalidNoteException
 import com.compose.noteapp.feature_note.domain.model.Note
 import com.compose.noteapp.feature_note.domain.repository.NoteRepository
-import kotlin.jvm.Throws
 
 class InsertNote(private val repository: NoteRepository) {
 
-    @Throws(InvalidNoteException::class)
     suspend operator fun invoke(note: Note) {
         if(note.title.isBlank()) {
             throw InvalidNoteException("The title of the note can't be empty.")
