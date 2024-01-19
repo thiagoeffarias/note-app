@@ -24,10 +24,13 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.ColorUtils
 import com.compose.noteapp.feature_note.domain.model.Note
+import com.compose.noteapp.ui.theme.NoteAppTheme
+import java.sql.Timestamp
 
 @Composable
 fun NoteItem(
@@ -84,5 +87,21 @@ fun NoteItem(
         IconButton(onClick = onDeleteClicked, modifier = Modifier.align(Alignment.BottomEnd)) {
             Icon(imageVector = Icons.Default.Delete, contentDescription = "Delete note")
         }
+    }
+}
+
+@Preview
+@Composable
+fun NoteItemPreview() {
+    NoteAppTheme {
+        NoteItem(
+            note = Note(
+                title = "A new note",
+                content = "content of the note goes here.",
+                timestamp = Timestamp(System.currentTimeMillis()),
+                color = MaterialTheme.colorScheme.errorContainer.toArgb() //RedOrange.toArgb()
+            ),
+            onDeleteClicked = { }
+        )
     }
 }
