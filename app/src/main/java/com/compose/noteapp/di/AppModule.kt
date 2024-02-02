@@ -7,6 +7,7 @@ import com.compose.noteapp.feature_note.data.data_source.NoteDatabase
 import com.compose.noteapp.feature_note.data.repository.NoteRepositoryImpl
 import com.compose.noteapp.feature_note.domain.repository.NoteRepository
 import com.compose.noteapp.feature_note.domain.use_case.DeleteNote
+import com.compose.noteapp.feature_note.domain.use_case.GetNote
 import com.compose.noteapp.feature_note.domain.use_case.GetNotes
 import com.compose.noteapp.feature_note.domain.use_case.InsertNote
 import com.compose.noteapp.feature_note.domain.use_case.NoteUseCases
@@ -38,6 +39,7 @@ object AppModule {
     @Singleton
     fun provideNoteUseCases(repository: NoteRepository): NoteUseCases {
         return NoteUseCases(
+            getNote = GetNote(repository),
             getNotes = GetNotes(repository),
             deleteNote = DeleteNote(repository),
             insertNote = InsertNote(repository)

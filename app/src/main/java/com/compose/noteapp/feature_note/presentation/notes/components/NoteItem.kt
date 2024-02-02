@@ -98,7 +98,7 @@ fun NoteItemPreview() {
             note = Note(
                 title = "A new note",
                 content = "content of the note goes here.",
-                timestamp = Timestamp(System.currentTimeMillis()),
+                timestamp = System.currentTimeMillis(),
                 color = MaterialTheme.colorScheme.errorContainer.toArgb() //RedOrange.toArgb()
             ),
             onDeleteClicked = { }
