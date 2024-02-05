@@ -34,12 +34,15 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.compose.noteapp.feature_note.domain.model.Note
+import com.compose.noteapp.feature_note.presentation.notes.NotesScreenTestTags.ORDER_SECTION
+import com.compose.noteapp.feature_note.presentation.notes.NotesScreenTestTags.TOGGLE_BUTTON
 import com.compose.noteapp.feature_note.presentation.notes.components.NoteItem
 import com.compose.noteapp.feature_note.presentation.notes.components.OrderSection
 import com.compose.noteapp.feature_note.presentation.util.Screen
@@ -86,6 +89,7 @@ internal fun NotesScreen(
                     style = MaterialTheme.typography.headlineMedium
                 )
                 IconButton(
+                    modifier = Modifier.testTag(TOGGLE_BUTTON),
                     onClick = { viewModel.onEvent(NotesEvents.ToggleOrderSection) },
                 ) {
                     Icon(imageVector = Icons.Default.Sort, contentDescription = "Sort notes")
@@ -99,7 +103,8 @@ internal fun NotesScreen(
                 OrderSection(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                        .padding(vertical = 16.dp)
+                        .testTag(ORDER_SECTION),
                     noteOrder = state.noteOrder,
                     onOrderChange = { nextOrder ->
                         viewModel.onEvent(NotesEvents.Order(nextOrder))
@@ -137,6 +142,11 @@ internal fun NotesScreen(
             }
         }
     }
+}
+
+object NotesScreenTestTags {
+    const val ORDER_SECTION = "ORDER_SECTION"
+    const val TOGGLE_BUTTON = "TOGGLE_BUTTON"
 }
 
 @Preview

@@ -20,7 +20,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.compose.noteapp.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -111,7 +111,7 @@ dependencies {
 
     // Instrumentation tests
     androidTestImplementation ("com.google.dagger:hilt-android-testing:2.50")
-    kaptAndroidTest ("com.google.dagger:hilt-android-compiler:2.37")
+    kaptAndroidTest ("com.google.dagger:hilt-android-compiler:2.50")
     androidTestImplementation ("junit:junit:4.13.2")
     androidTestImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
     androidTestImplementation ("androidx.arch.core:core-testing:2.1.0")
@@ -120,7 +120,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation ("androidx.test:core-ktx:1.4.0")
     androidTestImplementation ("com.squareup.okhttp3:mockwebserver:4.9.1")
-    androidTestImplementation ("io.mockk:mockk-android:1.10.5")
+    androidTestImplementation ("io.mockk:mockk-android:1.10.5") {
+        exclude(group = "com.linkedin.dexmaker", module = "dexmaker")
+    }
     androidTestImplementation ("androidx.test:runner:1.4.0")
-
 }
