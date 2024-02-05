@@ -17,25 +17,8 @@ class GetNotesTest {
 
     @Before
     fun setup() {
-        fakeRepository = FakeNoteRepository()
+        fakeRepository = FakeNoteRepository().apply { populateTables() }
         getNotes = GetNotes(fakeRepository)
-
-        val notesToInser = mutableListOf<Note>()
-        ('a'..'z').forEachIndexed { index, letter ->
-            val note = Note(
-                title = letter.toString(),
-                content = letter.toString(),
-                timestamp = index.toLong(),
-                color = index
-            )
-            notesToInser.add(note)
-        }
-        notesToInser.shuffle()
-        runBlocking {
-            notesToInser.forEach {
-                fakeRepository.insertNote(it)
-            }
-        }
     }
 
     @Test
