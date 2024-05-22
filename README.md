@@ -7,12 +7,14 @@
 * Kotlin
 * Jetpack Compose
 * Dagger Hilt for dependency Injection
+* Room
 * Coroutines
+* Flow
 * Retrofit
-* Location Service
 * Clean Code
-* MVI
+* MVVM
 * Repository pattern
+* Use Cases
 
 ### Screenshots
 
