@@ -1,1 +1,29 @@
-# note-app
+## Note App - Compose
+
+#### This is and app developed for practice purposes.
+
+##### It makes use of:
+
+* Kotlin
+* Jetpack Compose
+* Dagger Hilt for dependency Injection
+* Coroutines
+* Retrofit
+* Location Service
+* Clean Code
+* MVI
+* Repository pattern
+
+### Screenshots
+
+##### Create new note
+<img src="assets%2Fnote_app_create.png" width="300"> 
+
+##### Edit existent note
+<img src="assets%2Fnote_app_edit.png" width="300">
+
+##### Visualize all notes
+<img src="assets%2Fnote_app_full.png" width="300">
+
+##### Organize notes by different criterias
+<img src="assets%2Fnote_app_sorting.png" width="300"> 
